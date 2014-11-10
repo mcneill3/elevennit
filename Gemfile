@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-
+gem 'bootstrap-sass'
+gem 'rails_12factor', group: :production
+gem 'pry-rails', group: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use postgresql as the database for Active Record
