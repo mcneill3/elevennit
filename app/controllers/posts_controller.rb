@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, flash: { notice: 'It worked'}
     else
-      flash.now[:error] = "It stopped working.... womp womp"
+      flash.now[:error] = @post.errors.full_messages
       render :new
     end
   end
