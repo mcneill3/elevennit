@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.post_type = params[:post_type] if params[:post_type].present?
   end
 
   def create
