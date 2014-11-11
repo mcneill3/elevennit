@@ -1,0 +1,23 @@
+<%= form_for @post do |f| %>
+
+  <% if f.object.new_record? %>
+  <fieldset>
+    <%= f.label :title %>:
+    <%= f.text_field :title %><br />
+  </fieldset>
+  <% end %>
+
+  <fieldset>
+    <% if f.object.link? %>
+        <%= f.label :link %>:
+        <%= f.text_field :link %><br />
+    <% elsif f.object.text? %>
+        <%= f.label :body %>:
+        <%= f.text_area :body %><br />
+    <% end %>
+  </fieldset>
+
+    <%= f.hidden_field :post_type %>
+    <%= f.submit class: 'btn btn-default' %>
+  <% end %>
+

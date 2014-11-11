@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :find_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.all
@@ -10,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :link, :body))
+    @post = Post.new post_params
     if @post.save
       redirect_to posts_path, flash: { notice: 'It worked'}
     else
@@ -18,5 +19,26 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    if @post.update post_params
+      redirect_to posts_path, flash: { notice: 'Your post was updated successfully.' }
+    else
+      flash.now[:error] = @post.errors.full_messages
+      render :edit
+    end
+  end
+
+    private
+
+  def post_params
+    params.require(:post).permit(:title, :link, :body, :post_type)
+  end
+
+  def find_post
+    @post = Post.find params[:id]
+  end
+
+
 
 end

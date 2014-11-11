@@ -100,3 +100,68 @@ footer {
   font-size: smaller;
   text-align: center;
 }
+main form {
+  margin-bottom: 20px;
+  fieldset {
+    width: 514px;
+    padding: 7px 5px;
+    font-size: large;
+    background-color: #cee3f8;
+    margin-bottom: 10px;
+    input[type="text"], textarea, select {
+      width: 100%;
+      font-size: 14px;
+      line-height: 14px;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      height: 100px;
+    }
+  }
+}
+article {
+  .title {
+    font-size: 16px;
+    a:link, a:hover, a:active {
+      color: blue;
+    }
+    a:visited {
+      color: #551a8b;
+    }
+  }
+  .tagline {
+    color: #888;
+    font-size: x-small;
+  }
+  section.body {
+    border: 1px solid #3498db;
+    border-radius: 7px;
+    margin: 15px 0;
+    padding: 5px 5px;
+    background-color: #fafafa;
+    max-width: 60em;
+    overflow: auto;
+    font-size: small;
+  }
+}
+ul.posts, article {
+  ul.actions {
+    padding: 1px 0;
+    list-style-type: none;
+    li {
+      display: inline-block;
+      padding-right: 4px;
+      font-size: x-small;
+      line-height: 1.6em;
+      white-space: nowrap;
+      a {
+        color: #888;
+        font-weight: bold;
+        padding: 0 1px;
+        text-decoration: none;
+      }
+    }
+  }
+}
