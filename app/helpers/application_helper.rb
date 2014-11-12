@@ -27,4 +27,10 @@ module ApplicationHelper
     end
   end
 
+  def sidebar(sidebar_content)
+    content_for(:sidebar) do
+      sidebar_content
+    end
+  end
+
 end
