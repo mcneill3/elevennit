@@ -2,4 +2,5 @@
 <div class="category">
   <h2><%= @category.title %></h2>
   <div class= "description"><%= @category.description %></div>
+    <%= render 'posts/list', posts: @category.posts %>
 </div>
