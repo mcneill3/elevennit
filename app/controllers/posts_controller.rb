@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.with_categories
   end
 
   def new

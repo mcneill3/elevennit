@@ -10,4 +10,5 @@ class Post < ActiveRecord::Base
   enum post_type: [:link, :text]
 
   default_scope { order('updated_at DESC')}
+  scope :with_categories, -> { includes(:category) }
 end
