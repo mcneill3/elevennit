@@ -1,5 +1,6 @@
 <%= form_for @post do |f| %>
 
+<!-- Do no allow the title to be edited -->
   <% if f.object.new_record? %>
   <fieldset>
     <%= f.label :title %>:
@@ -17,7 +18,11 @@
     <% end %>
   </fieldset>
 
+  <fieldset>
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: 'Select a category' %>
+  </fieldset>
+
     <%= f.hidden_field :post_type %>
     <%= f.submit class: 'btn btn-default' %>
   <% end %>
-
