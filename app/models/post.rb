@@ -8,4 +8,6 @@ class Post < ActiveRecord::Base
   validates :body, presence: true, if: :text?
   validates :category_id, presence: true
   enum post_type: [:link, :text]
+
+  default_scope { order('updated_at DESC')}
 end
