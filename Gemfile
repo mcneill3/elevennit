@@ -3,6 +3,12 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass'
 gem 'rails_12factor', group: :production
 gem 'pry-rails', group: [:development, :test]
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use postgresql as the database for Active Record
