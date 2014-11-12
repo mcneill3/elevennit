@@ -1,12 +1,8 @@
 <ul class="posts">
-  <% @posts.each do |post| %>
+<% @posts.each do |post| %>
   <li>
-    <%= post_title_link(post)  %>
-    <div class="tagline" title='<%= post.created_at%>'>
-      submitted <%= time_ago_in_words post.created_at%> ago
-    </div>
-    <ul class="actions">
-      </li><%= link_to 'edit', edit_post_path(post) %></li>
-    </ul>
-  <% end %>
+    <%= render 'slug', post: post %>
+    <%= render 'actions', post: post %>
+  </li>
+<% end %>
 </ul>
