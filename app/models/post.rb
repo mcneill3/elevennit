@@ -11,4 +11,6 @@ class Post < ActiveRecord::Base
 
   default_scope { order('updated_at DESC')}
   scope :with_categories, -> { includes(:category) }
+
+  self.per_page = 8
 end
