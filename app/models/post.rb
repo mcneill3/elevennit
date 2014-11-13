@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :category
   belongs_to :user
-
+  acts_as_commentable
 
   validates :title, length: { maximum: 255 }, presence: true
   validates :link, presence: true, if: :link?

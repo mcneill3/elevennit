@@ -36,6 +36,7 @@ gem 'spring',        group: :development
 gem 'pry-doc',       group: :development
 gem 'will_paginate'
 gem 'devise'
+gem 'acts_as_commentable_with_threading'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
