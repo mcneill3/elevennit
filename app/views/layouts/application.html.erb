@@ -74,11 +74,13 @@
           </main>
         </div>
           <div class="col-xs-4">
-            <nav id="sidebar">
-              <%= link_to 'Submit a new link', new_post_path %>
-              <%= link_to 'Submit a new text post', new_post_path(post_type: :text) %>
-              <%= link_to 'Create a new category', new_category_path %>
-              <div><%= yield :sidebar %></div>
+            <% if user_signed_in? -%>
+              <nav id="sidebar">
+                <%= link_to 'Submit a new link', new_post_path %>
+                <%= link_to 'Submit a new text post', new_post_path(post_type: :text) %>
+                <%= link_to 'Create a new category', new_category_path %>
+            <% end -%>
+                <div><%= yield :sidebar %></div>
             </nav>
           </div>
       </div>
