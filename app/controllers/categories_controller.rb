@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def new
     @category = Category.new
   end
