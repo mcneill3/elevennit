@@ -11,6 +11,11 @@ class PostsController < ApplicationController
     @post.post_type = params[:post_type] if params[:post_type].present?
   end
 
+  def show
+    @post = Post.find params[:id]
+    @comment = Comment.build_from(@post, current_user.id, '')
+  end
+
   def create
     @post = Post.new post_params
     @post.user_id = current_user.id
