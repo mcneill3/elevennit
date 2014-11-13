@@ -28,6 +28,8 @@ class Comment < ActiveRecord::Base
     self.children.any?
   end
 
+  default_scope { order('created_at ASC') }
+
   # Helper class method to lookup all comments assigned
   # to all commentable types for a given user.
   scope :find_comments_by_user, lambda { |user|

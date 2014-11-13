@@ -17,8 +17,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.includes(:posts).find(params[:id])
-    @posts = @category.posts.page(params[:page])
+    @category = Category.includes(posts: [:comment_threads]).find(params[:id])
+    @posts = @category.posts.with_user.page(params[:page])
   end
 
 
