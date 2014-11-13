@@ -4,27 +4,19 @@
   <section class="body"><%= @post.body %></section>
   <% end -%>
   <%= render 'actions', post: @post %>
-  <%= form_for @comment, html: { class: 'comment' } do |f| %>
-  <fieldset>
-    <%= f.label :body, 'Add a comment' %><br />
-    <%= f.text_area :body %>
-  </fieldset>
-  <%= f.hidden_field :commentable_type %>
-  <%= f.hidden_field :commentable_id %>
-  <%= f.submit class: 'btn btn-default' %>
-  <% end %>
+  <%= render 'comments/form', comment: @comment %>
     <ol id="comments">
-    <% @post.comment_threads.each do |comment| -%>
-      <li>
-        <div class="tagline" title="<%= comment.created_at %>">
-          <%= comment.user.username %>
-          <%= time_ago_in_words comment.created_at %> ago
-        </div>
-        <section class="body">
-          <%= comment.body %>
-        </section>
-      </li>
-    <% end -%>
-  </ol>
+      <% @post.comment_threads.each do |comment| -%>
+        <li>
+          <div class="tagline" title="<%= comment.created_at %>">
+            <%= comment.user.username %>
+            <%= time_ago_in_words comment.created_at %> ago
+          </div>
+          <section class="body">
+            <%= comment.body %>
+          </section>
+        </li>
+      <% end -%>
+    </ol>
 
 </article>
